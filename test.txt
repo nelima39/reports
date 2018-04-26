@@ -1,0 +1,27 @@
+
+> ServerJasak@0.0.1 start /home/hackchan/desarrollo/serverjasak
+> npm run file && npm run static && npm run dist && npm run delsrc && npm run serve
+
+
+> ServerJasak@0.0.1 file /home/hackchan/desarrollo/serverjasak
+> mkdir -p dist
+
+
+> ServerJasak@0.0.1 static /home/hackchan/desarrollo/serverjasak
+> cp -rf src/static/ dist/
+
+
+> ServerJasak@0.0.1 dist /home/hackchan/desarrollo/serverjasak
+> babel src/**/* src/index.js --out-dir dist --presets es2015
+
+src/api/index.js -> dist/src/api/index.js
+src/middleware/static.js -> dist/src/middleware/static.js
+src/index.js -> dist/src/index.js
+
+> ServerJasak@0.0.1 delsrc /home/hackchan/desarrollo/serverjasak
+> cp -rf dist/src/*  dist/ && rm -rf dist/src
+
+
+> ServerJasak@0.0.1 serve /home/hackchan/desarrollo/serverjasak
+> NODE_PATH=./dist node dist
+

@@ -1,0 +1,35 @@
+{
+  "name": "ServerJasak",
+  "version": "0.0.1",
+  "description": "backend profesional server.",
+  "main": "index.js",
+  "scripts": {
+    "file": "mkdir -p dist",
+    "dist": "babel src/**/* src/index.js --out-dir dist --presets es2015",
+    "index": "babel src/**/* --out-dir dist --presets es2015",
+    "delsrc": "cp -rf dist/src/*  dist/ && rm -rf dist/src",
+    "static": "cp -rf src/static/ dist/",
+    "serve": "NODE_PATH=./dist forever start dist",
+    "start": "npm run file && npm run static && npm run dist && npm run delsrc && npm run serve"
+  },
+  "author": "Fabio Rojas <fabiorojas7@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.0",
+    "express": "^4.13.4",
+    "jwt-simple": "^0.5.0",
+    "method-override": "^2.3.6",
+    "moment": "^2.14.1",
+    "mongoose": "^4.6.0",
+    "node-firebird": "^0.7.5",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0",
+    "underscore.string": "^3.3.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13"
+  }
+}
